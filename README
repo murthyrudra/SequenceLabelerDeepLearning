@@ -1,0 +1,30 @@
+# NER for Marathi
+
+NER system using Deep learning for Marathi
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+Need to install Torch Software
+http://torch.ch/
+
+### Installing
+
+Follow the instruction given in http://torch.ch/docs/getting-started.html#_ to install Torch
+
+Also these libraries needs to be installed
+
+luarocks install <library here>
+
+<library here> = nn sys optim xlua rnn pprint nninit manifold class
+
+## Authors
+
+* **Rudra Murthy** - *Initial work* - (www.cse.iitb.ac.in/~rudra)
+
+## License
+
+Needs to be updated

@@ -1,0 +1,1 @@
+qlua SequenceLabeler_LSTM_CNN.lua -train English/eng.train -tune English/eng.testa -test English/eng.testb -characterSource English/eng.char -tags English_IOB/tags -embeddings English/english.word2vec -hiddenSize 200 -language English -modelInfo Eng-LSTM-CNN-200-1-3-15-word2vec -optimizationTechnique 0 -minCharacternGrams 1 -maxCharacternGrams 3 -characterDimension 15 -lr 0.4
