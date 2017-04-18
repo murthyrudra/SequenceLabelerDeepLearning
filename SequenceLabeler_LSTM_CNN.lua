@@ -438,8 +438,8 @@ function validation(DataSource, DataTags, CharacterDataSource)
 end
 
 function test(DataSource, DataTags, DataAsItIs, epoch, wordPresent, CharacterDataSource, CharacterAsItIs)
-  local fN = assert(io.open("output/"..options.language.."/"..options.modelInfo.."/embedding", "w"))
-
+--  local fN = assert(io.open("output/"..options.language.."/"..options.modelInfo.."/embedding", "w"))
+--
 --   for i=1,sourceDictionarySize do
 --     fN:write(reverseSourceDictionary[i].." ")
 --    
