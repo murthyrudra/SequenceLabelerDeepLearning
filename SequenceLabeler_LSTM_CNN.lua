@@ -440,16 +440,16 @@ end
 function test(DataSource, DataTags, DataAsItIs, epoch, wordPresent, CharacterDataSource, CharacterAsItIs)
   local fN = assert(io.open("output/"..options.language.."/"..options.modelInfo.."/embedding", "w"))
 
-   for i=1,sourceDictionarySize do
-     fN:write(reverseSourceDictionary[i].." ")
-    
-     local e = embed.weight[i]:clone():float()
-    
-     for j=1,e:size(1) do
-      fN:write(e[j].." ")
-     end
-     fN:write("\n")
-   end  
+--   for i=1,sourceDictionarySize do
+--     fN:write(reverseSourceDictionary[i].." ")
+--    
+--     local e = embed.weight[i]:clone():float()
+--    
+--     for j=1,e:size(1) do
+--      fN:write(e[j].." ")
+--     end
+--     fN:write("\n")
+--   end  
   
   local f = assert(io.open("output/"..options.language.."/"..options.modelInfo.."/"..options.language..".out__"..epoch, "w"))
   print("output/"..options.language.."/"..options.modelInfo.."/test_out_"..epoch)
@@ -769,7 +769,7 @@ end
 
 function saveModel()
   local filename = "output/"..options.language.."/"..options.modelInfo.."/embed_"..options.hiddenSize
-  torch.save(embed)
+  torch.save(filename,embed)
 
   for i = minCharacternGramsequence,maxCharacternGramsequence do
     filename = "output/"..options.language.."/"..options.modelInfo.."/charLearnerL1_"..i.."_"..options.hiddenSize
@@ -782,7 +782,6 @@ function saveModel()
   filename = "output/"..options.language.."/"..options.modelInfo.."/b-lstm_"..options.hiddenSize
   torch.save(filename, lstm1)
 
-  os.exit(2)
 end
 
 
