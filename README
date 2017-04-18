@@ -1,6 +1,6 @@
-# NER for Marathi
+# Sequence Labeler using Deep Learning
 
-NER system using Deep learning for Marathi
+Supports NER, POS tagging, ... any sequence labeling task
 
 ## Getting Started
 
