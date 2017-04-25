@@ -306,7 +306,6 @@ function loadDataTest(fileName,sourceDictionary, tagVocabulary,reverseSourceDict
       
       table.insert(lineWords, input)
 
-      --local lineForOutput = sourceWord[wordColumnId].."\t"..sourceWord[characterColumnId].."\t"..sourceWord[nerColumnId]
       local lineForOutput = sourceWord[wordColumnId].."\t"..sourceWord[characterColumnId]
       table.insert(lineAsItIs, lineForOutput)
       
@@ -316,12 +315,8 @@ function loadDataTest(fileName,sourceDictionary, tagVocabulary,reverseSourceDict
 
       for character in string.gmatch(sourceWord[characterColumnId],"[^ ]+") do
         if(characterVocabulary[character] ~= nil) then
-            table.insert(wordCharacter,characterVocabulary[character])
-          else
---            print("Error character "..character.." not found")
---            table.insert(wordCharacter,0)
---            os.exit()
-          end
+          table.insert(wordCharacter,characterVocabulary[character])
+        end
 
       end
       table.insert(wordCharacter, characterVocabulary["</S>"])

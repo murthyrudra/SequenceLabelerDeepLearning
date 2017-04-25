@@ -452,7 +452,7 @@ function test(DataSource, DataTags, DataAsItIs, epoch, wordPresent, CharacterDat
 --   end  
   
   local f = assert(io.open("output/"..options.language.."/"..options.modelInfo.."/"..options.language..".out__"..epoch, "w"))
-  print("output/"..options.language.."/"..options.modelInfo.."/test_out_"..epoch)
+  print("output/"..options.language.."/"..options.modelInfo.."/"..options.language.."out__"..epoch)
   
   local loss = 0
   
@@ -496,7 +496,7 @@ function test(DataSource, DataTags, DataAsItIs, epoch, wordPresent, CharacterDat
       linePresent = wordPresent[pairIterate]
       characterInput = extractCharacterInput(CharacterDataSource[pairIterate])
     else
-      characterInput = CharacterDataSource[pairIterate]
+      characterInput = extractCharacterInput(CharacterDataSource[pairIterate])
     end
     
     grad_params:zero()
@@ -579,22 +579,31 @@ function test(DataSource, DataTags, DataAsItIs, epoch, wordPresent, CharacterDat
     
   
   f:close()
-  print("Total Words Statistics")
-  print(cm)
-  cm:zero()
   
-  print("Known Words Statistics")
-  print(cmKnown)
-  cmKnown:zero()
+  if not options.tagTestSet then
+    print("Total Words Statistics")
+    print(cm)
+    cm:zero()
+  end
   
-  print("Unknown Words Statistics")
-  print(cmUnknown)
-  cmUnknown:zero()
+  if not options.tagTestSet then
+    print("Known Words Statistics")
+    print(cmKnown)
+    cmKnown:zero()
+  end
   
-  print("Words Present and correct ".. presentAndCorrect)
-  print("Words Present and wrong ".. presentAndWrong)
-  print("Words Absent and correct ".. absentAndCorrect)
-  print("Words Absent and wrong ".. absentAndWrong)
+  if not options.tagTestSet then
+    print("Unknown Words Statistics")
+    print(cmUnknown)
+    cmUnknown:zero()
+  end
+  
+  if not options.tagTestSet then
+    print("Words Present and correct ".. presentAndCorrect)
+    print("Words Present and wrong ".. presentAndWrong)
+    print("Words Absent and correct ".. absentAndCorrect)
+    print("Words Absent and wrong ".. absentAndWrong)
+  end
   
 end
 
